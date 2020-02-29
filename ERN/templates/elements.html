@@ -1,0 +1,169 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="img/favicon.png" type="image/png">
+        <title>Donations</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'vendors/linericon/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+        <link rel="stylesheet" href="{% static 'vendors/lightbox/simpleLightbox.css' %}">
+        <link rel="stylesheet" href="{% static 'vendors/nice-select/css/nice-select.css' %}">
+        <!-- main css -->
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    </head>
+    <body>
+        
+        <!--================ Start Header Menu Area =================-->
+    	<header class="header_area">
+			<div class="main_menu">
+				<div class="container">
+					<nav class="navbar navbar-expand-lg navbar-light">
+						<div class="container">
+							<!-- Brand and toggle get grouped for better mobile display -->
+							<a class="navbar-brand logo_h"><img src="{% static 'img/logo.png' %}"  height="120" width="120" alt=""></a>
+							<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+							<ul class="nav navbar-nav menu_nav ml-auto">
+								<li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
+								<li class="nav-item"><a class="nav-link" href="{% url 'about_us' %}">About</a></li>
+								<li class="nav-item active"><a class="nav-link" href="{% url 'donations' %}">Donations</a></li>
+								<li class="nav-item"><a class="nav-link" href="{% url 'blog' %}">Blog</a></li>
+                                 <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+									</ul>
+
+
+						</div>
+						</div>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<!--================ End Header Menu Area =================-->
+			
+		<!--================ Home Banner Area =================-->
+		<section class="banner_area">
+			<div class="banner_inner d-flex align-items-center">
+				<div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
+				<div class="container">
+					<div class="banner_content text-center">
+						<h2>Donations</h2>
+						<p>If your inspired you can donate through different ways.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--================ End Home Banner Area =================-->
+
+
+		<center>  <img class="img-fluid" src="{% static 'img/donation.jpg' %}" alt=""><p align="right"></p></center>
+
+<center><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+		<input type="hidden" name="cmd" value="_s-xclick" />
+		<input type="hidden" name="hosted_button_id" value="NEMSN5N63FZ9U" />
+		<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+		<img alt="" border="0" src="https://www.paypal.com/en_TZ/i/scr/pixel.gif" width="1" height="1" />
+</form></center>
+
+        
+		<!--================ Start footer Area  =================-->	
+		<footer>
+			<div class="footer-area">
+				<div class="container">
+					<div class="row section_gap">
+						<div class="col-lg-3 col-md-6 col-sm-6">
+							<div class="single-footer-widget tp_widgets">
+								<h4 class="footer_title large_title">Our Mission</h4>
+								<p>
+									So seed seed green that winged cattle in. Gathering thing made fly you're no 
+									divided deep moved us lan Gathering thing us land years living.
+								</p>
+								<p>
+									So seed seed green that winged cattle in. Gathering thing made fly you're no divided deep moved 
+								</p>
+							</div>
+						</div>
+						<div class="offset-lg-1 col-lg-2 col-md-6 col-sm-6">
+							<div class="single-footer-widget tp_widgets">
+								<h4 class="footer_title">Quick Links</h4>
+								<ul class="list">
+									<li><a href="{% url 'index' %}">Home</a></li>
+									<li><a href="{% url 'about_us' %}">About</a></li>
+									<li><a href="{% url 'donations' %}">Donations</a></li>
+									<li><a href="{% url 'contact' %}">Contact</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="offset-lg-1 col-lg-3 col-md-6 col-sm-6">
+						<div class="single-footer-widget tp_widgets">
+							<h4 class="footer_title">Contact Us</h4>
+							<div class="ml-40">
+								<p class="sm-head">
+									<span class="fa fa-location-arrow"></span>
+									Head Office
+								</p>
+								<p>Edmund Rice secondary</p>
+	
+								<p class="sm-head">
+									<span class="fa fa-phone"></span>
+									Phone Number
+								</p>
+								<p>
+									+255 758585847 <br>
+									+355 735585847
+								</p>
+	
+								<p class="sm-head">
+									<span class="fa fa-envelope"></span>
+									Email
+								</p>
+								<p>
+									edmundricenetworkarusha@gmail.com <br>
+									edmundricenetworkarusha@yahoo.com
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer-bottom">
+			<div class="container">
+				<div class="row d-flex">
+					<p class="col-lg-12 footer-text text-center">
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | made by Luqman Tuke (smartcodes_tz)
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!--================ End footer Area  =================-->
+        
+        
+        
+        
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/popper.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/stellar.js"></script>
+        <script src="vendors/lightbox/simpleLightbox.min.js"></script>
+        <script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
+        <script src="vendors/jquery-ui/jquery-ui.js"></script>
+        <script src="js/jquery.ajaxchimp.min.js"></script>
+        <script src="js/mail-script.js"></script>
+        <script src="js/theme.js"></script>
+    </body>
+</html>

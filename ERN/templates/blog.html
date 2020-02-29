@@ -1,0 +1,338 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="{% static 'img/favicon.png' %}" type="image/png">
+        <title>Blog</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'vendors/linericon/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+        <link rel="stylesheet" href="{% static 'vendors/lightbox/simpleLightbox.css' %}">
+        <link rel="stylesheet" href="{% static 'vendors/nice-select/css/nice-select.css' %}">
+        <!-- main css -->
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    </head>
+    <body>
+        
+        <!--================ Start Header Menu Area =================-->
+        <header class="header_area">
+            <div class="main_menu">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="container">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <a class="navbar-brand logo_h"><img src="{% static 'img/logo.png' %}"  height="120" width="120" alt=""></a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            	<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+							<ul class="nav navbar-nav menu_nav ml-auto">
+								<li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
+								<li class="nav-item"><a class="nav-link" href="{% url 'about_us' %}">About</a></li>
+								<li class="nav-item"><a class="nav-link" href="{% url 'donations' %}">Donations</a></li>
+								<li class="nav-item active"><a class="nav-link" href="{% url 'blog' %}">Blog</a></li>
+                                 <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+									</ul>
+
+
+						</div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <!--================ End Header Menu Area =================-->
+            
+        <!--================ Home Banner Area =================-->
+        <section class="banner_area">
+            <div class="banner_inner d-flex align-items-center">
+                <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
+                <div class="container">
+                    <div class="banner_content text-center">
+                        <h2>Our Blog</h2>
+                        <p>Everything you need to know about our events and projects is here</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--================ End Home Banner Area =================-->
+        
+        <!--================Blog Categorie Area =================-->
+        <section class="blog_categorie_area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="categories_post">
+                            <img src="{% static 'img/blog/cat-post/cat-post-3.jpg' %}" width="400" height="300" alt="post">
+                            <div class="categories_details">
+                                <div class="categories_text">
+                                    <a href="single-blog.html"><h5>Social Life</h5></a>
+                                    <div class="border_line"></div>
+                                    <p>Enjoy your social life together</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="categories_post">
+                            <img src="{% static 'img/blog/cat-post/cat-post-2.jpg' %}" alt="post">
+                            <div class="categories_details">
+                                <div class="categories_text">
+                                    <a href="single-blog.html"><h5>Projects</h5></a>
+                                    <div class="border_line"></div>
+                                    <p>Be a part of development projects</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="categories_post">
+                            <img src="{% static 'img/blog/cat-post/cat-post-1.jpg' %}"  width="300" height="300" alt="post">
+                            <div class="categories_details">
+                                <div class="categories_text">
+                                    <a href="single-blog.html"><h5>Food</h5></a>
+                                    <div class="border_line"></div>
+                                    <p>Let them have food and enjoy</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--================Blog Categorie Area =================-->
+        
+        <!--================Blog Area =================-->
+
+        <section class="blog_area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="blog_left_sidebar">
+                            <article class="row blog_item">
+                                {% for obj in post_list %}
+                               <div class="col-md-3">
+                                   <div class="blog_info text-right">
+
+                                        <div class="post_tag">
+                                            {% for cat in object.categories.all %}
+                                      <a href="#">{{ cat }} </a>
+                                            {% endfor %}
+                                        </div>
+
+                                        <ul class="blog_meta list">
+                                            <li><a href="#">{{ obj.author}}<i class="lnr lnr-user"></i></a></li>
+                                            <li><a href="#">{{ obj.time_stamp|timesince }} ago<i class="lnr lnr-calendar-full"></i></a></li>
+                                            <li><a href="#">1.2M Views<i class="lnr lnr-eye"></i></a></li>
+                                            <li><a href="#">{{ obj.comment_count }}<i class="lnr lnr-bubble"></i></a></li>
+                                        </ul>
+                                    </div>
+                               </div>
+                                <div class="col-md-9">
+                                    <div class="blog_post">
+                                        <img src="{{ obj.thumbnail.url }}" alt="">
+                                        <div class="blog_details">
+                                            <a href="single-blog.html"><h2>{{ obj.title }}</h2></a>
+                                            <p>{{ obj.overeview }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </article>
+        
+
+                     <nav class="blog-pagination justify-content-center d-flex">
+		                        <ul class="pagination">
+		                            <li class="page-item">
+                                    {% if post_list.has_previous %}
+		                                <a href="?{{ page_request_var }}={{ post_list.previous_page_number }}" class="page-link" aria-label="Previous"> Previous
+		                             {% endif %}
+                                            <span aria-hidden="true">
+		                                        <span class="lnr lnr-chevron-left"></span>
+		                                    </span>
+		                                </a>
+		                            </li>
+		        
+		                            
+		                            <li class="page-item">
+                                    {% if post_list.has_next %}
+		                                <a href="?{{ page_request_var }}={{ post_list.next_page_number }}" class="page-link" aria-label="Next"> Next
+                                    {% endif %}    
+		                                    <span aria-hidden="true">
+		                                        <span class="lnr lnr-chevron-right"></span>
+		                                    </span>
+		                                </a>
+		                            </li>
+		                        </ul>
+		                    </nav>
+
+		                    </nav>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="blog_right_sidebar">
+                            <aside class="single_sidebar_widget search_widget">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search Posts">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button"><i class="lnr lnr-magnifier"></i></button>
+                                    </span>
+                                </div><!-- /input-group -->
+                                <div class="br"></div>
+                            </aside>
+                            <aside class="single_sidebar_widget author_widget">
+                                <img class="author_img rounded-circle" src="{% static 'img/blog/author.png' %}" width="100" height="100" alt="">
+                                <h4>Ambrose Bashayija</h4>
+                                <p>ERN chairman</p>
+                                <div class="social_icon">
+                                    <a href="https://web.facebook.com/ambrose.bashayija.3"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-github"></i></a>
+                                    <a href="#"><i class="fa fa-behance"></i></a>
+                                </div>
+                                <p>Justice and Advocacy is what we highly implement. We have been raising even our own students in a way that they can have the spirit of giving and helping
+                                   This blog page is all about sharing with you guys the activities that we conduct.</p>
+                                <div class="br"></div>
+                            </aside>   
+                           
+                            <aside class="single_sidebar_widget ads_widget">
+                                <a href="#"><img class="img-fluid" src="{% static 'img/blog/add.jpg' %}" alt=""></a>
+                                <div class="br"></div>
+                            </aside>
+                             <aside class="single_sidebar_widget ads_widget">
+                                <a href="#"><img class="img-fluid" src="{% static 'img/blog/add.jpg' %}" alt=""></a>
+                                <div class="br"></div>
+                            </aside>
+                             <aside class="single_sidebar_widget ads_widget">
+                                <a href="#"><img class="img-fluid" src="{% static 'img/blog/add.jpg' %}" alt=""></a>
+                                <div class="br"></div>
+                            </aside>
+                             <aside class="single_sidebar_widget ads_widget">
+                                <a href="#"><img class="img-fluid" src="{% static 'img/blog/add.jpg' %}" alt=""></a>
+                                <div class="br"></div>
+                            </aside>
+                            <aside class="single-sidebar-widget newsletter_widget">
+                                <h4 class="widget_title">Newsletter</h4>
+                                <p>
+                                Subscribe to our newsletter so as you can get important news, fundations projects and also upcoming events.
+                                </p>
+                                <div class="form-group d-flex flex-row">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                                        </div>
+                                        <form action=".">
+                                        {% csrf_token %}
+                                    
+                                        <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Enter email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email'">
+                                    </div>
+                                    <a href="#" class="bbtns">Subcribe</a>
+                                </div>	
+                                <p class="text-bottom">You can unsubscribe at any time</p>	
+                                <div class="br"></div>							
+                            </aside>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--================Blog Area =================-->
+        
+         <!--================ Start footer Area  =================-->	
+    <footer>
+            <div class="footer-area">
+                <div class="container">
+                    <div class="row section_gap">
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="single-footer-widget tp_widgets">
+                                <h4 class="footer_title large_title">Our Mission</h4>
+                                <p>
+                                    So seed seed green that winged cattle in. Gathering thing made fly you're no 
+                                    divided deep moved us lan Gathering thing us land years living.
+                                </p>
+                                <p>
+                                    So seed seed green that winged cattle in. Gathering thing made fly you're no divided deep moved 
+                                </p>
+                            </div>
+                        </div>
+                        <div class="offset-lg-1 col-lg-2 col-md-6 col-sm-6">
+                            <div class="single-footer-widget tp_widgets">
+                                <h4 class="footer_title">Quick Links</h4>
+                                <ul class="list">
+                                    <li><a href="{% url 'about_us' %}">Home</a></li>
+                                    <li><a href="{% url 'about_us' %}">About</a></li>
+                                    <li><a href="{% url 'donations' %}">Donations</a></li>
+                                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="offset-lg-1 col-lg-3 col-md-6 col-sm-6">
+						<div class="single-footer-widget tp_widgets">
+							<h4 class="footer_title">Contact Us</h4>
+							<div class="ml-40">
+								<p class="sm-head">
+									<span class="fa fa-location-arrow"></span>
+									Head Office
+								</p>
+								<p>Edmund Rice secondary</p>
+	
+								<p class="sm-head">
+									<span class="fa fa-phone"></span>
+									Phone Number
+								</p>
+								<p>
+									+255 758585847 <br>
+									+355 735585847
+								</p>
+	
+								<p class="sm-head">
+									<span class="fa fa-envelope"></span>
+									Email
+								</p>
+								<p>
+									edmundricenetworkarusha@gmail.com <br>
+									edmundricenetworkarusha@yahoo.com
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer-bottom">
+			<div class="container">
+				<div class="row d-flex">
+					<p class="col-lg-12 footer-text text-center">
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | made by Luqman Tuke (smartcodes_tz)
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!--================ End footer Area  =================-->
+        
+        
+        
+        
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+        <script src="{% static 'js/popper.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/stellar.js' %}"></script>
+        <script src="{% static 'vendors/lightbox/simpleLightbox.min.js' %}"></script>
+        <script src="{% static 'vendors/nice-select/js/jquery.nice-select.min.js' %}"></script>
+        <script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+        <script src="{% static 'js/mail-script.js' %}"></script>
+        <script src="{% static 'js/theme.js' %}"></script>
+    </body>
+</html>
